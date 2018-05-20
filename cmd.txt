@@ -1,0 +1,23 @@
+cd C:\D\Anas\mozakra\ML\CarND013\term3\CarND-Project4-Semantic-Segmentation
+conda info --envs
+activate carnd-advdl-odlab
+
+
+======================= aws ========================
+
+pip install --upgrade pip
+
+git clone https://github.com/anasmatic/CarND-Project4-Semantic-Segmentation.git
+cd CarND-Project4-Semantic-Segmentation/
+cd data
+wget https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/advanced_deep_learning/data_road.zip
+unzip data_road.zip
+source activate carnd-term1
+conda update --all
+pip install tensorflow
+sudo apt-get update
+sudo apt install python3-pip
+pip3 install discord.py
+
+
+

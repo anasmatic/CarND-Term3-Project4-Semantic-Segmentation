@@ -1,0 +1,152 @@
+Tests Passed
+Tests Passed
+Tests Passed
+Tests Passed
+~~~~logits~~~~
+Tensor("Reshape_2:0", shape=(?, 2), dtype=float32)
+----labels----
+Tensor("Reshape_3:0", shape=(?, 2), dtype=float32)
+_________
+ ----- starting epoch 0 , batchsize=8
+    batch 0 has loss 44.275200
+    batch 1 has loss 53.388298
+[I 02:11:57.952 NotebookApp] Saving file at /main.ipynb
+    batch 2 has loss 17.895264
+    batch 3 has loss 19.558264
+    batch 4 has loss 12.584356
+    batch 5 has loss 8.585906
+    batch 6 has loss 9.693195
+    batch 7 has loss 7.060556
+    batch 8 has loss 5.133851
+    batch 9 has loss 4.887980
+    batch 10 has loss 5.105910
+    batch 11 has loss 3.764566
+    batch 12 has loss 3.115162
+    batch 13 has loss 3.294669
+    batch 14 has loss 3.280321
+    batch 15 has loss 2.557343
+    batch 16 has loss 2.661653
+    batch 17 has loss 2.448788
+    batch 18 has loss 2.441272
+    batch 19 has loss 2.087810
+    batch 20 has loss 2.117794
+    batch 21 has loss 2.250009
+    batch 22 has loss 2.033489
+    batch 23 has loss 1.768026
+    batch 24 has loss 1.731355
+    batch 25 has loss 1.923382
+    batch 26 has loss 1.755757
+    batch 27 has loss 1.718627
+    batch 28 has loss 1.660994
+    batch 29 has loss 1.567300
+    batch 30 has loss 1.509730
+    batch 31 has loss 1.416870
+    batch 32 has loss 1.492741
+    batch 33 has loss 1.363993
+    batch 34 has loss 1.424295
+    batch 35 has loss 1.372839
+    batch 36 has loss 1.065790
+  epoch 0 finished with loss 6.540361
+ ----- starting epoch 1 , batchsize=8
+    batch 0 has loss 1.216664
+    batch 1 has loss 1.250055
+    batch 2 has loss 1.221324
+    batch 3 has loss 1.217667
+    batch 4 has loss 1.241408
+    batch 5 has loss 1.178489
+    batch 6 has loss 1.279116
+    batch 7 has loss 1.158896
+    batch 8 has loss 1.280096
+    batch 9 has loss 1.132152
+    batch 10 has loss 1.126529
+    batch 11 has loss 1.108404
+    batch 12 has loss 1.184923
+    batch 13 has loss 1.096038
+    batch 14 has loss 1.049646
+    batch 15 has loss 1.028060
+    batch 16 has loss 1.036249
+    batch 17 has loss 1.008213
+    batch 18 has loss 1.068818
+    batch 19 has loss 1.062525
+    batch 20 has loss 1.040473
+    batch 21 has loss 0.991700
+    batch 22 has loss 0.982882
+    batch 23 has loss 0.993886
+    batch 24 has loss 1.033162
+    batch 25 has loss 0.996863
+    batch 26 has loss 1.016682
+    batch 27 has loss 0.946040
+    batch 28 has loss 0.967264
+    batch 29 has loss 0.955932
+    batch 30 has loss 0.941227
+    batch 31 has loss 0.930002
+    batch 32 has loss 0.991569
+    batch 33 has loss 0.938599
+    batch 34 has loss 0.958294
+    batch 35 has loss 0.896409
+    batch 36 has loss 0.846810
+  epoch 1 finished with loss 1.064137
+
+
+C:\Users\Omnia\Anaconda3\lib\site-packages\scipy\misc\pilutil.py:480: FutureWarning: Conversion of the second argument of issubdtype from `int` to `np.signedinteger` is deprecated. In future, it will be treated as `np.int32 == np.dtype(int).type`.
+  if issubdtype(ts, int):
+C:\Users\Omnia\Anaconda3\lib\site-packages\scipy\misc\pilutil.py:483: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  elif issubdtype(type(size), float):
+
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-16-48a78b8a439c> in <module>()
+      1 #if __name__ == '__main__':
+----> 2 run()
+
+<ipython-input-15-057077abcc99> in run()
+     40 
+     41         #TODO: safe model :
+---> 42         saver = tf.train.Saver()
+     43         saver.save(sess, './segmentation_model')
+     44         print("Model Saved!")
+
+C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in __init__(self, var_list, reshape, sharded, max_to_keep, keep_checkpoint_every_n_hours, name, restore_sequentially, saver_def, builder, defer_build, allow_empty, write_version, pad_step_number, save_relative_paths, filename)
+   1309           time.time() + self._keep_checkpoint_every_n_hours * 3600)
+   1310     elif not defer_build:
+-> 1311       self.build()
+   1312     if self.saver_def:
+   1313       self._check_saver_def()
+
+C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in build(self)
+   1318     if context.executing_eagerly():
+   1319       raise RuntimeError("Use save/restore instead of build in eager mode.")
+-> 1320     self._build(self._filename, build_save=True, build_restore=True)
+   1321 
+   1322   def _build_eager(self, checkpoint_path, build_save, build_restore):
+
+C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in _build(self, checkpoint_path, build_save, build_restore)
+   1355           restore_sequentially=self._restore_sequentially,
+   1356           filename=checkpoint_path,
+-> 1357           build_save=build_save, build_restore=build_restore)
+   1358     elif self.saver_def and self._name:
+   1359       # Since self._name is used as a name_scope by builder(), we are
+
+C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in _build_internal(self, names_to_saveables, reshape, sharded, max_to_keep, keep_checkpoint_every_n_hours, name, restore_sequentially, filename, build_save, build_restore)
+    785                        " when eager execution is not enabled.")
+    786 
+--> 787     saveables = self._ValidateAndSliceInputs(names_to_saveables)
+    788     if max_to_keep is None:
+    789       max_to_keep = 0
+
+C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in _ValidateAndSliceInputs(self, names_to_saveables)
+    633     """
+    634     if not isinstance(names_to_saveables, dict):
+--> 635       names_to_saveables = BaseSaverBuilder.OpListToDict(names_to_saveables)
+    636 
+    637     saveables = []
+
+C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in OpListToDict(op_list, convert_variable_to_tensor)
+    610           if name in names_to_saveables:
+    611             raise ValueError("At least two variables have the same name: %s" %
+--> 612                              name)
+    613           names_to_saveables[name] = var
+    614 
+
+ValueError: At least two variables have the same name: conv1_1/biases
+
