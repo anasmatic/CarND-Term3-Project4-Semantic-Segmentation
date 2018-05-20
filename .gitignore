@@ -102,6 +102,5 @@ ENV/
 
 RUNS/
 data/
-segmentation_model.data-00000-of-00001
-segmentation_model.index
-segmentation_model.meta
+saved/
+

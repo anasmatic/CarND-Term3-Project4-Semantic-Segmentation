@@ -47,6 +47,7 @@ def load_vgg(sess, vgg_path):
 tests.test_load_vgg(load_vgg, tf)
 
 
+
 def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
     """
     Create the layers for a fully convolutional network.  Build skip-layers using the vgg layers.
@@ -74,6 +75,7 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
 tests.test_layers(layers)
 
 
+
 def optimize(nn_last_layer, correct_label, learning_rate, num_classes):
     """
     Build the TensorFLow loss and optimizer operations.
@@ -83,13 +85,17 @@ def optimize(nn_last_layer, correct_label, learning_rate, num_classes):
     :param num_classes: Number of classes to classify
     :return: Tuple of (logits, train_op, cross_entropy_loss)
     """
-    logits = tf.reshape(nn_last_layer, (-1, num_classes))
-    labels = tf.reshape(correct_label, (-1, num_classes))
-    cross_entropy_loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=labels,logits=logits))
+    logits = tf.reshape(nn_last_layer, (-1, num_classes), name='logits')
+    labels = tf.reshape(correct_label, (-1, num_classes), name='labels')
+    print("~~~~logits~~~~")
+    print(logits)
+    print("----labels----")
+    print(labels)
+    print("_________")
+    cross_entropy_loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=labels,logits=logits))
     train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss = cross_entropy_loss);
     return logits, train_op, cross_entropy_loss
 tests.test_optimize(optimize)
-
 
 def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_loss, input_image,
              correct_label, keep_prob, learning_rate):
@@ -108,9 +114,17 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
     """
     
     for epoch in range(epochs):
-        for image, lable in get_batches_fn(batch_size):
-            sess.run([train_op,cross_entropy_loss], 
-                     {input_image:image,correct_label:lable,keep_prob:1.0,learning_rate:10})
+        print(" ----- starting epoch %d , batchsize=%d"%(epoch,batch_size))
+        batch_num = 0
+        batch_total_loss = 0
+        for image, label in get_batches_fn(batch_size):
+            train , batch_loss = sess.run([train_op,cross_entropy_loss], 
+                     feed_dict={input_image:image,correct_label:label,keep_prob:0.5,learning_rate:0.0001})
+            batch_total_loss = batch_total_loss + batch_loss
+            print("    batch %d has loss %f"%(batch_num,batch_loss))
+            batch_num +=1
+        epoch_loss=batch_total_loss/batch_num
+        print ("  epoch %d finished with loss %f"%(epoch,epoch_loss))
     pass
 tests.test_train_nn(train_nn)
 
@@ -128,13 +142,15 @@ def run():
     # OPTIONAL: Train and Inference on the cityscapes dataset instead of the Kitti dataset.
     # You'll need a GPU with at least 10 teraFLOPS to train on.
     #  https://www.cityscapes-dataset.com/
-    epochs = 10
+    epochs = 10#2#10
     batch_size = 8
-    correct_label = tf.placeholder(tf.float32, [None, None, None, num_classes])#from project_tests.py
-    learning_rate = tf.placeholder(tf.float32, name='learning_rate')#from project_tests.py
-    learning_rate = 10#from project_tests.py
+    #learning_rate = 10.0#from project_tests.py
     with tf.Session() as sess:
-        sess.run(tf.global_variables_initializer())
+        #vars
+        correct_label = tf.placeholder(tf.float32, [None, None, None, num_classes], name='correct_label')#from project_tests.py
+        learning_rate = tf.placeholder(tf.float32, name='learning_rate')#from project_tests.py
+    
+        
         # Path to vgg model
         vgg_path = os.path.join(data_dir, 'vgg')
         # Create function to get batches
@@ -147,12 +163,16 @@ def run():
         input_image, keep_prob, layer3_out, layer4_out, layer7_out = load_vgg(sess,vgg_path)
         layer_output = layers(layer3_out, layer4_out, layer7_out, num_classes)
         logits, train_op, cross_entropy_loss = optimize(layer_output,correct_label,learning_rate,num_classes)
+        
+        sess.run(tf.global_variables_initializer())
         # TODO: Train NN using the train_nn function
         train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_loss, input_image,
              correct_label, keep_prob, learning_rate)
         
-        #TODO: safe model : tf.train.Saver()
-        
+        #TODO: safe model : 
+        saver = tf.train.Saver()
+        saver.save(sess, './saved/segmentation_model')
+        print("Model Saved!")
         # TODO: Save inference data using helper.save_inference_samples
         helper.save_inference_samples(runs_dir, data_dir, sess, image_shape, logits, keep_prob, input_image)
 
