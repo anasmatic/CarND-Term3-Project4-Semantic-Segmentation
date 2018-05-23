@@ -104,7 +104,10 @@ def gen_batch_function(data_folder, image_shape):
                 #  2-flip grayscale and original
                 img_h_flip = cv2.flip( img, 0 )
                 image_h_flip = cv2.flip( image, 0 )
-                gt_image_h_flip = cv2.flip( gt_image, 0 )
+                try:
+                    gt_image_h_flip = cv2.flip( gt_image, 0 )
+                except:
+                    gt_image_h_flip = gt_image    
                 images.append(img_h_flip)
                 gt_images.append(gt_image_h_flip)
                 images.append(image_h_flip)
