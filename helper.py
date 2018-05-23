@@ -10,7 +10,7 @@ import tensorflow as tf
 from glob import glob
 from urllib.request import urlretrieve
 from tqdm import tqdm
-
+import cv2
 
 class DLProgress(tqdm):
     last_block = 0
@@ -93,7 +93,23 @@ def gen_batch_function(data_folder, image_shape):
 
                 images.append(image)
                 gt_images.append(gt_image)
-
+                #augment ---------------------------
+                #  1- grayscal with contrast
+                img = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+                img = cv2.equalizeHist(img)#contrast http://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/histogram_equalization/histogram_equalization.html
+                cv2.normalize(img,img, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)#, dtype=cv2.CV_32F)
+                img.shape = (img.shape[0],img.shape[1],1)#update shape
+                images.append(img)
+                gt_images.append(gt_image)
+                #  2-flip grayscale and original
+                img_h_flip = cv2.flip( img, 0 )
+                image_h_flip = cv2.flip( image, 0 )
+                gt_image_h_flip = cv2.flip( gt_image, 0 )
+                images.append(img_h_flip)
+                gt_images.append(gt_image_h_flip)
+                images.append(image_h_flip)
+                gt_images.append(gt_image_h_flip)
+                #augment end ----------------------------------------------------
             yield np.array(images), np.array(gt_images)
     return get_batches_fn
 

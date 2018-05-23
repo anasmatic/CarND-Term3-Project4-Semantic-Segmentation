@@ -58,19 +58,25 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
     :return: The Tensor for the last layer of output
     """
     conv_1x1_7 = tf.layers.conv2d(vgg_layer7_out, num_classes, 1, strides=(1,1), padding='same',
-                                  kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
+                                  kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3),
+                                  kernel_initializer=tf.truncated_normal_initializer(stddev=1e-3))#https://www.programcreek.com/python/example/90502/tensorflow.truncated_normal_initializer
     conv_1x1_4 = tf.layers.conv2d(vgg_layer4_out, num_classes, 1, strides=(1,1), padding='same',
-                                  kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
+                                  kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3),
+                                  kernel_initializer=tf.truncated_normal_initializer(stddev=1e-3))
     conv_1x1_3 = tf.layers.conv2d(vgg_layer3_out, num_classes, 1, strides=(1,1), padding='same',
-                                  kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
+                                  kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3),
+                                  kernel_initializer=tf.truncated_normal_initializer(stddev=1e-3))
     transpose_7 = tf.layers.conv2d_transpose(conv_1x1_7, num_classes, 4, strides=(2, 2),padding='same',
-                                             kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
+                                             kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3),
+                                             kernel_initializer=tf.truncated_normal_initializer(stddev=1e-3))
     add_7_4 = tf.add(transpose_7, conv_1x1_4)
     transpose_4 = tf.layers.conv2d_transpose(add_7_4, num_classes, 4, strides=(2, 2),padding='same',
-                                             kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
+                                             kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3),
+                                             kernel_initializer=tf.truncated_normal_initializer(stddev=1e-3))
     add_4_3 = tf.add(transpose_4 , conv_1x1_3 )
     transpose_3 = tf.layers.conv2d_transpose(add_4_3, num_classes, 16, strides=(8, 8),padding='same',
-                                             kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
+                                             kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3),
+                                             kernel_initializer=tf.truncated_normal_initializer(stddev=1e-3))
     return transpose_3
 tests.test_layers(layers)
 
@@ -119,7 +125,7 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
         batch_total_loss = 0
         for image, label in get_batches_fn(batch_size):
             train , batch_loss = sess.run([train_op,cross_entropy_loss], 
-                     feed_dict={input_image:image,correct_label:label,keep_prob:0.5,learning_rate:0.0001})
+                     feed_dict={input_image:image,correct_label:label,keep_prob:0.5,learning_rate:0.001})
             batch_total_loss = batch_total_loss + batch_loss
             print("    batch %d has loss %f"%(batch_num,batch_loss))
             batch_num +=1
@@ -142,15 +148,14 @@ def run():
     # OPTIONAL: Train and Inference on the cityscapes dataset instead of the Kitti dataset.
     # You'll need a GPU with at least 10 teraFLOPS to train on.
     #  https://www.cityscapes-dataset.com/
-    epochs = 10#2#10
+    epochs = 20#2#10
     batch_size = 8
     #learning_rate = 10.0#from project_tests.py
     with tf.Session() as sess:
         #vars
         correct_label = tf.placeholder(tf.float32, [None, None, None, num_classes], name='correct_label')#from project_tests.py
         learning_rate = tf.placeholder(tf.float32, name='learning_rate')#from project_tests.py
-    
-        
+            
         # Path to vgg model
         vgg_path = os.path.join(data_dir, 'vgg')
         # Create function to get batches
@@ -158,7 +163,7 @@ def run():
 
         # OPTIONAL: Augment Images for better results
         #  https://datascience.stackexchange.com/questions/5224/how-to-prepare-augment-images-for-neural-network
-
+		
         # TODO: Build NN using load_vgg, layers, and optimize function
         input_image, keep_prob, layer3_out, layer4_out, layer7_out = load_vgg(sess,vgg_path)
         layer_output = layers(layer3_out, layer4_out, layer7_out, num_classes)
@@ -171,7 +176,7 @@ def run():
         
         #TODO: safe model : 
         saver = tf.train.Saver()
-        saver.save(sess, './saved/segmentation_model')
+        saver.save(sess, './saved/segmentation_model_180523')
         print("Model Saved!")
         # TODO: Save inference data using helper.save_inference_samples
         helper.save_inference_samples(runs_dir, data_dir, sess, image_shape, logits, keep_prob, input_image)

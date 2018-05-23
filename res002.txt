@@ -1,152 +1,393 @@
-Tests Passed
-Tests Passed
-Tests Passed
-Tests Passed
-~~~~logits~~~~
-Tensor("Reshape_2:0", shape=(?, 2), dtype=float32)
-----labels----
-Tensor("Reshape_3:0", shape=(?, 2), dtype=float32)
-_________
  ----- starting epoch 0 , batchsize=8
-    batch 0 has loss 44.275200
-    batch 1 has loss 53.388298
-[I 02:11:57.952 NotebookApp] Saving file at /main.ipynb
-    batch 2 has loss 17.895264
-    batch 3 has loss 19.558264
-    batch 4 has loss 12.584356
-    batch 5 has loss 8.585906
-    batch 6 has loss 9.693195
-    batch 7 has loss 7.060556
-    batch 8 has loss 5.133851
-    batch 9 has loss 4.887980
-    batch 10 has loss 5.105910
-    batch 11 has loss 3.764566
-    batch 12 has loss 3.115162
-    batch 13 has loss 3.294669
-    batch 14 has loss 3.280321
-    batch 15 has loss 2.557343
-    batch 16 has loss 2.661653
-    batch 17 has loss 2.448788
-    batch 18 has loss 2.441272
-    batch 19 has loss 2.087810
-    batch 20 has loss 2.117794
-    batch 21 has loss 2.250009
-    batch 22 has loss 2.033489
-    batch 23 has loss 1.768026
-    batch 24 has loss 1.731355
-    batch 25 has loss 1.923382
-    batch 26 has loss 1.755757
-    batch 27 has loss 1.718627
-    batch 28 has loss 1.660994
-    batch 29 has loss 1.567300
-    batch 30 has loss 1.509730
-    batch 31 has loss 1.416870
-    batch 32 has loss 1.492741
-    batch 33 has loss 1.363993
-    batch 34 has loss 1.424295
-    batch 35 has loss 1.372839
-    batch 36 has loss 1.065790
-  epoch 0 finished with loss 6.540361
+    batch 0 has loss 57.279503
+    batch 1 has loss 53.487564
+    batch 2 has loss 41.308781
+    batch 3 has loss 32.431034
+    batch 4 has loss 26.160954
+    batch 5 has loss 23.123594
+    batch 6 has loss 21.842033
+    batch 7 has loss 17.992729
+    batch 8 has loss 15.097260
+    batch 9 has loss 14.140552
+    batch 10 has loss 12.586946
+    batch 11 has loss 12.337316
+    batch 12 has loss 10.615770
+    batch 13 has loss 9.336948
+    batch 14 has loss 8.234698
+    batch 15 has loss 8.036444
+    batch 16 has loss 7.978278
+    batch 17 has loss 6.911192
+    batch 18 has loss 6.078959
+    batch 19 has loss 5.770132
+    batch 20 has loss 5.463892
+    batch 21 has loss 4.950143
+    batch 22 has loss 4.791036
+    batch 23 has loss 4.540978
+    batch 24 has loss 4.228252
+    batch 25 has loss 3.653012
+    batch 26 has loss 3.363693
+    batch 27 has loss 3.385237
+    batch 28 has loss 3.133874
+    batch 29 has loss 3.222791
+    batch 30 has loss 2.792602
+    batch 31 has loss 2.911488
+    batch 32 has loss 2.687624
+    batch 33 has loss 2.415604
+    batch 34 has loss 2.581838
+    batch 35 has loss 2.702631
+    batch 36 has loss 2.208383
+  epoch 0 finished with loss 12.156318
  ----- starting epoch 1 , batchsize=8
-    batch 0 has loss 1.216664
-    batch 1 has loss 1.250055
-    batch 2 has loss 1.221324
-    batch 3 has loss 1.217667
-    batch 4 has loss 1.241408
-    batch 5 has loss 1.178489
-    batch 6 has loss 1.279116
-    batch 7 has loss 1.158896
-    batch 8 has loss 1.280096
-    batch 9 has loss 1.132152
-    batch 10 has loss 1.126529
-    batch 11 has loss 1.108404
-    batch 12 has loss 1.184923
-    batch 13 has loss 1.096038
-    batch 14 has loss 1.049646
-    batch 15 has loss 1.028060
-    batch 16 has loss 1.036249
-    batch 17 has loss 1.008213
-    batch 18 has loss 1.068818
-    batch 19 has loss 1.062525
-    batch 20 has loss 1.040473
-    batch 21 has loss 0.991700
-    batch 22 has loss 0.982882
-    batch 23 has loss 0.993886
-    batch 24 has loss 1.033162
-    batch 25 has loss 0.996863
-    batch 26 has loss 1.016682
-    batch 27 has loss 0.946040
-    batch 28 has loss 0.967264
-    batch 29 has loss 0.955932
-    batch 30 has loss 0.941227
-    batch 31 has loss 0.930002
-    batch 32 has loss 0.991569
-    batch 33 has loss 0.938599
-    batch 34 has loss 0.958294
-    batch 35 has loss 0.896409
-    batch 36 has loss 0.846810
-  epoch 1 finished with loss 1.064137
+    batch 0 has loss 2.217907
+    batch 1 has loss 2.183549
+    batch 2 has loss 1.987123
+    batch 3 has loss 1.972771
+    batch 4 has loss 1.870353
+    batch 5 has loss 1.932727
+    batch 6 has loss 1.884358
+    batch 7 has loss 1.908252
+    batch 8 has loss 1.748416
+    batch 9 has loss 1.630458
+    batch 10 has loss 1.675797
+    batch 11 has loss 1.655203
+    batch 12 has loss 1.619594
+    batch 13 has loss 1.531673
+    batch 14 has loss 1.667764
+    batch 15 has loss 1.549407
+    batch 16 has loss 1.510599
+    batch 17 has loss 1.539222
+    batch 18 has loss 1.435104
+    batch 19 has loss 1.311681
+    batch 20 has loss 1.495474
+    batch 21 has loss 1.391135
+    batch 22 has loss 1.263889
+    batch 23 has loss 1.356115
+    batch 24 has loss 1.435640
+    batch 25 has loss 1.258993
+    batch 26 has loss 1.216840
+    batch 27 has loss 1.218169
+    batch 28 has loss 1.210755
+    batch 29 has loss 1.192359
+    batch 30 has loss 1.168490
+    batch 31 has loss 1.240785
+    batch 32 has loss 1.145455
+    batch 33 has loss 1.189754
+    batch 34 has loss 1.166093
+    batch 35 has loss 1.151107
+    batch 36 has loss 1.195402
+  epoch 1 finished with loss 1.516984
+----- starting epoch 2 , batchsize=8
+    batch 0 has loss 1.118510
+    batch 1 has loss 1.127948
+    batch 2 has loss 1.146919
+    batch 3 has loss 1.079229
+    batch 4 has loss 1.118532
+    batch 5 has loss 1.002158
+    batch 6 has loss 1.041571
+    batch 7 has loss 1.068449
+    batch 8 has loss 1.004686
+    batch 9 has loss 1.041828
+    batch 10 has loss 0.991138
+    batch 11 has loss 1.096066
+    batch 12 has loss 1.010623
+    batch 13 has loss 1.024482
+    batch 14 has loss 1.002101
+    batch 15 has loss 0.994667
+    batch 16 has loss 0.995752
+    batch 17 has loss 0.958252
+    batch 18 has loss 0.959831
+    batch 19 has loss 0.959992
+    batch 20 has loss 0.935878
+    batch 21 has loss 0.969110
+    batch 22 has loss 0.974554
+    batch 23 has loss 0.900308
+    batch 24 has loss 0.908376
+    batch 25 has loss 0.940535
+    batch 26 has loss 0.914500
+    batch 27 has loss 0.922169
+    batch 28 has loss 0.892954
+    batch 29 has loss 0.882585
+    batch 30 has loss 0.902896
+    batch 31 has loss 0.920039
+    batch 32 has loss 0.921603
+    batch 33 has loss 0.874537
+    batch 34 has loss 0.921579
+    batch 35 has loss 0.905171
+    batch 36 has loss 0.878803
+  epoch 2 finished with loss 0.981306
+    batch 0 has loss 0.879069
+    batch 1 has loss 0.916565
+    batch 2 has loss 0.876562
+    batch 3 has loss 0.891223
+    batch 4 has loss 0.863269
+    batch 5 has loss 0.866112
+    batch 6 has loss 0.839104
+    batch 7 has loss 0.840911
+    batch 8 has loss 0.865393
+    batch 9 has loss 0.838013
+    batch 10 has loss 0.870467
+    batch 11 has loss 0.833862
+    batch 12 has loss 0.827802
+    batch 13 has loss 0.838823
+    batch 14 has loss 0.853889
+    batch 15 has loss 0.849954
+    batch 16 has loss 0.830614
+    batch 17 has loss 0.819400
+    batch 18 has loss 0.821315
+    batch 19 has loss 0.803308
+    batch 20 has loss 0.849059
+    batch 21 has loss 0.843598
+    batch 22 has loss 0.794900
+    batch 23 has loss 0.815565
+    batch 24 has loss 0.829030
+    batch 25 has loss 0.817274
+    batch 26 has loss 0.794450
+    batch 27 has loss 0.823029
+    batch 28 has loss 0.825012
+    batch 29 has loss 0.802446
+    batch 30 has loss 0.792266
+    batch 31 has loss 0.806589
+    batch 32 has loss 0.817259
+    batch 33 has loss 0.786295
+    batch 34 has loss 0.784460
+    batch 35 has loss 0.791245
+    batch 36 has loss 0.827562
+  epoch 3 finished with loss 0.833127
+ ----- starting epoch 4 , batchsize=8
+    batch 0 has loss 0.779290
+    batch 1 has loss 0.801671
+    batch 2 has loss 0.774696
+    batch 3 has loss 0.801636
+    batch 4 has loss 0.773386
+    batch 5 has loss 0.799666
+    batch 6 has loss 0.782373
+    batch 7 has loss 0.776476
+    batch 8 has loss 0.775016
+    batch 9 has loss 0.793418
+    batch 10 has loss 0.779870
+    batch 11 has loss 0.792856
+    batch 12 has loss 0.750408
+    batch 13 has loss 0.766444
+    batch 14 has loss 0.796979
+    batch 15 has loss 0.780023
+    batch 16 has loss 0.781906
+    batch 17 has loss 0.756771
+    batch 18 has loss 0.751453
+    batch 19 has loss 0.769284
+    batch 20 has loss 0.754681
+    batch 21 has loss 0.758570
+    batch 22 has loss 0.770253
+    batch 23 has loss 0.771787
+    batch 24 has loss 0.753747
+    batch 25 has loss 0.759025
+    batch 26 has loss 0.757777
+    batch 27 has loss 0.766181
+    batch 28 has loss 0.753581
+    batch 29 has loss 0.755498
+    batch 30 has loss 0.762248
+    batch 31 has loss 0.739233
+    batch 32 has loss 0.739993
+    batch 33 has loss 0.758298
+    batch 34 has loss 0.734007
+    batch 35 has loss 0.740757
+    batch 36 has loss 0.739237
+  epoch 4 finished with loss 0.767527
+ ----- starting epoch 5 , batchsize=8
+    batch 0 has loss 0.744615
+    batch 1 has loss 0.746037
+    batch 2 has loss 0.739473
+    batch 3 has loss 0.747688
+    batch 4 has loss 0.731947
+    batch 5 has loss 0.738391
+    batch 6 has loss 0.745454
+    batch 7 has loss 0.760047
+    batch 8 has loss 0.732919
+    batch 9 has loss 0.734524
+    batch 10 has loss 0.731063
+    batch 11 has loss 0.735233
+    batch 12 has loss 0.731350
+    batch 13 has loss 0.727513
+    batch 14 has loss 0.730099
+    batch 15 has loss 0.738518
+    batch 16 has loss 0.731581
+    batch 17 has loss 0.731863
+    batch 18 has loss 0.729258
+    batch 19 has loss 0.732807
+    batch 20 has loss 0.730538
+    batch 21 has loss 0.718886
+    batch 22 has loss 0.726491
+    batch 23 has loss 0.718381
+    batch 24 has loss 0.720323
+    batch 25 has loss 0.724863
+    batch 26 has loss 0.728334
+    batch 27 has loss 0.727334
+    batch 28 has loss 0.727625
+    batch 29 has loss 0.727881
+    batch 30 has loss 0.724926
+    batch 31 has loss 0.729125
+    batch 32 has loss 0.718696
+    batch 33 has loss 0.714671
+    batch 34 has loss 0.717060
+    batch 35 has loss 0.733309
+    batch 36 has loss 0.742694
+  epoch 5 finished with loss 0.731663
+ ----- starting epoch 6 , batchsize=8
+    batch 0 has loss 0.714498
+    batch 1 has loss 0.724150
+    batch 2 has loss 0.719108
+    batch 3 has loss 0.722436
+    batch 4 has loss 0.713330
 
+    batch 5 has loss 0.704797
+    batch 6 has loss 0.708207
+    batch 7 has loss 0.717689
+    batch 8 has loss 0.703523
+    batch 9 has loss 0.727025
+    batch 10 has loss 0.714595
+    batch 11 has loss 0.716761
+    batch 12 has loss 0.703672
+    batch 13 has loss 0.719742
+    batch 14 has loss 0.709717
+    batch 15 has loss 0.703612
+    batch 16 has loss 0.711951
+    batch 17 has loss 0.717517
+    batch 18 has loss 0.703610
+    batch 19 has loss 0.716964
+    batch 20 has loss 0.705814
+    batch 21 has loss 0.699390
+    batch 22 has loss 0.713139
+    batch 23 has loss 0.698046
+    batch 24 has loss 0.698168
+    batch 25 has loss 0.709396
+    batch 26 has loss 0.703853
+    batch 27 has loss 0.701532
+    batch 28 has loss 0.702105
+    batch 29 has loss 0.698101
+    batch 30 has loss 0.695261
+    batch 31 has loss 0.708615
+    batch 32 has loss 0.710652
+    batch 33 has loss 0.697571
+    batch 34 has loss 0.698036
+    batch 35 has loss 0.705245
+    batch 36 has loss 0.688962
+  epoch 6 finished with loss 0.708292
+-----
+    batch 0 has loss 0.704247
+    batch 1 has loss 0.699502
 
-C:\Users\Omnia\Anaconda3\lib\site-packages\scipy\misc\pilutil.py:480: FutureWarning: Conversion of the second argument of issubdtype from `int` to `np.signedinteger` is deprecated. In future, it will be treated as `np.int32 == np.dtype(int).type`.
-  if issubdtype(ts, int):
-C:\Users\Omnia\Anaconda3\lib\site-packages\scipy\misc\pilutil.py:483: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-  elif issubdtype(type(size), float):
+    batch 2 has loss 0.701551
+    batch 3 has loss 0.695706
+    batch 4 has loss 0.698160
+    batch 5 has loss 0.697733
+    batch 6 has loss 0.704973
+    batch 7 has loss 0.695857
+    batch 8 has loss 0.687534
+    batch 9 has loss 0.692087
+    batch 10 has loss 0.706324
+    batch 11 has loss 0.687217
+    batch 12 has loss 0.687488
+    batch 13 has loss 0.690736
+    batch 14 has loss 0.692581
+    batch 15 has loss 0.694993
+    batch 16 has loss 0.687092
+    batch 17 has loss 0.687792
+    batch 18 has loss 0.684610
+    batch 19 has loss 0.687788
+    batch 20 has loss 0.687699
+    batch 21 has loss 0.693399
+    batch 22 has loss 0.695527
+    batch 23 has loss 0.685895
+    batch 24 has loss 0.695976
+    batch 25 has loss 0.691172
+    batch 26 has loss 0.689679
+    batch 27 has loss 0.687000
+    batch 28 has loss 0.691874
+    batch 29 has loss 0.692279
+    batch 30 has loss 0.696229
+    batch 31 has loss 0.686651
+    batch 32 has loss 0.693780
+    batch 33 has loss 0.691080
+    batch 34 has loss 0.687742
+    batch 35 has loss 0.689640
+    batch 36 has loss 0.678173
+  epoch 7 finished with loss 0.692372
+ ----- starting epoch 8 , batchsize=8
+    batch 0 has loss 0.686219
 
----------------------------------------------------------------------------
-ValueError                                Traceback (most recent call last)
-<ipython-input-16-48a78b8a439c> in <module>()
-      1 #if __name__ == '__main__':
-----> 2 run()
+    batch 1 has loss 0.684979
+    batch 2 has loss 0.688121
+    batch 3 has loss 0.690332
+    batch 4 has loss 0.689464
+    batch 5 has loss 0.688106
+    batch 6 has loss 0.680720
+    batch 7 has loss 0.683123
+    batch 8 has loss 0.683553
+    batch 9 has loss 0.684539
+    batch 10 has loss 0.686319
+    batch 11 has loss 0.693746
+    batch 12 has loss 0.690281
+    batch 13 has loss 0.683730
+    batch 14 has loss 0.682584
+    batch 15 has loss 0.676412
+    batch 16 has loss 0.682414
+    batch 17 has loss 0.676317
+    batch 18 has loss 0.676490
+    batch 19 has loss 0.680601
+    batch 20 has loss 0.684747
+    batch 21 has loss 0.678841
+    batch 22 has loss 0.675210
+    batch 23 has loss 0.678132
+    batch 24 has loss 0.678541
+    batch 25 has loss 0.673563
+    batch 26 has loss 0.683024
+    batch 27 has loss 0.680577
+    batch 28 has loss 0.682714
+    batch 29 has loss 0.671278
+    batch 30 has loss 0.673477
+    batch 31 has loss 0.676159
+    batch 32 has loss 0.674122
+    batch 33 has loss 0.674911
+    batch 34 has loss 0.678940
+    batch 35 has loss 0.676052
+    batch 36 has loss 0.677666
+  epoch 8 finished with loss 0.681243
+ ----- starting epoch 9 , batchsize=8
 
-<ipython-input-15-057077abcc99> in run()
-     40 
-     41         #TODO: safe model :
----> 42         saver = tf.train.Saver()
-     43         saver.save(sess, './segmentation_model')
-     44         print("Model Saved!")
-
-C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in __init__(self, var_list, reshape, sharded, max_to_keep, keep_checkpoint_every_n_hours, name, restore_sequentially, saver_def, builder, defer_build, allow_empty, write_version, pad_step_number, save_relative_paths, filename)
-   1309           time.time() + self._keep_checkpoint_every_n_hours * 3600)
-   1310     elif not defer_build:
--> 1311       self.build()
-   1312     if self.saver_def:
-   1313       self._check_saver_def()
-
-C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in build(self)
-   1318     if context.executing_eagerly():
-   1319       raise RuntimeError("Use save/restore instead of build in eager mode.")
--> 1320     self._build(self._filename, build_save=True, build_restore=True)
-   1321 
-   1322   def _build_eager(self, checkpoint_path, build_save, build_restore):
-
-C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in _build(self, checkpoint_path, build_save, build_restore)
-   1355           restore_sequentially=self._restore_sequentially,
-   1356           filename=checkpoint_path,
--> 1357           build_save=build_save, build_restore=build_restore)
-   1358     elif self.saver_def and self._name:
-   1359       # Since self._name is used as a name_scope by builder(), we are
-
-C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in _build_internal(self, names_to_saveables, reshape, sharded, max_to_keep, keep_checkpoint_every_n_hours, name, restore_sequentially, filename, build_save, build_restore)
-    785                        " when eager execution is not enabled.")
-    786 
---> 787     saveables = self._ValidateAndSliceInputs(names_to_saveables)
-    788     if max_to_keep is None:
-    789       max_to_keep = 0
-
-C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in _ValidateAndSliceInputs(self, names_to_saveables)
-    633     """
-    634     if not isinstance(names_to_saveables, dict):
---> 635       names_to_saveables = BaseSaverBuilder.OpListToDict(names_to_saveables)
-    636 
-    637     saveables = []
-
-C:\Users\Omnia\Anaconda3\lib\site-packages\tensorflow\python\training\saver.py in OpListToDict(op_list, convert_variable_to_tensor)
-    610           if name in names_to_saveables:
-    611             raise ValueError("At least two variables have the same name: %s" %
---> 612                              name)
-    613           names_to_saveables[name] = var
-    614 
-
-ValueError: At least two variables have the same name: conv1_1/biases
-
+    batch 0 has loss 0.678668
+    batch 1 has loss 0.672065
+    batch 2 has loss 0.679372
+    batch 3 has loss 0.676373
+    batch 4 has loss 0.678293
+    batch 5 has loss 0.673249
+    batch 6 has loss 0.671527
+    batch 7 has loss 0.669468
+    batch 8 has loss 0.673526
+    batch 9 has loss 0.672200
+    batch 10 has loss 0.670217
+    batch 11 has loss 0.674135
+    batch 12 has loss 0.677334
+    batch 13 has loss 0.682410
+    batch 14 has loss 0.673624
+    batch 15 has loss 0.670124
+    batch 16 has loss 0.675698
+    batch 17 has loss 0.664030
+    batch 18 has loss 0.671027
+    batch 19 has loss 0.673358
+    batch 20 has loss 0.668404
+    batch 21 has loss 0.666444
+    batch 22 has loss 0.670639
+    batch 23 has loss 0.668704
+    batch 24 has loss 0.666499
+    batch 25 has loss 0.671992
+    batch 26 has loss 0.670751
+    batch 27 has loss 0.670288
+    batch 28 has loss 0.670053
+    batch 29 has loss 0.668604
+    batch 30 has loss 0.663786
+    batch 31 has loss 0.669035
+    batch 32 has loss 0.670432
+    batch 33 has loss 0.664968
+    batch 34 has loss 0.668259
+    batch 35 has loss 0.671414
+    batch 36 has loss 0.671795
+  epoch 9 finished with loss 0.671588
