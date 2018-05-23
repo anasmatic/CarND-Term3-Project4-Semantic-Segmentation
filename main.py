@@ -125,7 +125,7 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
         batch_total_loss = 0
         for image, label in get_batches_fn(batch_size):
             train , batch_loss = sess.run([train_op,cross_entropy_loss], 
-                     feed_dict={input_image:image,correct_label:label,keep_prob:0.5,learning_rate:0.001})
+                     feed_dict={input_image:image,correct_label:label,keep_prob:0.5,learning_rate:0.0001})
             batch_total_loss = batch_total_loss + batch_loss
             print("    batch %d has loss %f"%(batch_num,batch_loss))
             batch_num +=1
