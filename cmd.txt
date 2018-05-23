@@ -4,20 +4,62 @@ activate carnd-advdl-odlab
 
 
 ======================= aws ========================
+ssh carnd@X.X.X.X
+pass: carnd
 
 pip install --upgrade pip
+conda update --all
+sudo apt-get update
+sudo apt install python3-pip
+pip install tensorflow
+pip3 install jupyter
+pip3 install discord.py
+source activate carnd-term1
+pip install --upgrade pip
 
-git clone https://github.com/anasmatic/CarND-Project4-Semantic-Segmentation.git
-cd CarND-Project4-Semantic-Segmentation/
+#install cuda
+#reference:https://developer.nvidia.com/cuda-90-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=deblocal
+wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
+sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
+sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
+sudo apt-get install cuda-9.0
+sudo apt-get install cuda-libraries-9-0
+sudo apt install nvidia-cuda-toolkit
+
+git clone https://github.com/anasmatic/CarND-Term3-Project4-Semantic-Segmentation.git
+cd CarND-Term3-Project4-Semantic-Segmentation/
 cd data
 wget https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/advanced_deep_learning/data_road.zip
 unzip data_road.zip
-source activate carnd-term1
-conda update --all
-pip install tensorflow
+cd ..
+python3 main.py
+
+====================== AMI =====================
+search aws for : conda-based
+choose : Deep Learning AMI (Ubuntu) Version 2.0 - ami-caac25a5
+GPU instances g2.2xlarge
+Security : SSH, custome TCP 8080 & 8888 , HTTP , HTTPS
+log in : https://www.youtube.com/watch?v=4WQe_-DAn1E
+
+git clone https://github.com/anasmatic/CarND-Term3-Project4-Semantic-Segmentation.git
+cd CarND-Term3-Project4-Semantic-Segmentation/
+cd data
+wget https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/advanced_deep_learning/data_road.zip
+unzip data_road.zip
+cd ..
+
 sudo apt-get update
 sudo apt install python3-pip
-pip3 install discord.py
+pip install --upgrade pip
+pip install tqdm
+pip install Pillow
+pip install tesorflow-gpu --upgrade
 
+wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
+sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
+sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
+sudo apt-get install cuda-9.0
+sudo ldconfig /usr/local/cuda/lib64
 
-
+#how to download file :
+https://www.youtube.com/watch?v=Qxs7CYguo70
