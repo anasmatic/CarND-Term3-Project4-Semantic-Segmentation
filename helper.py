@@ -99,6 +99,7 @@ def gen_batch_function(data_folder, image_shape):
                 img = cv2.equalizeHist(img)#contrast http://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/histogram_equalization/histogram_equalization.html
                 cv2.normalize(img,img, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)#, dtype=cv2.CV_32F)
                 #img.shape = (img.shape[0],img.shape[1],3)#update shape
+                img = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
                 images.append(img)
                 gt_images.append(gt_image)
                 #  2-flip grayscale and original
