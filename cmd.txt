@@ -40,6 +40,13 @@ choose : Deep Learning AMI (Ubuntu) Version 2.0 - ami-caac25a5
 GPU instances g2.2xlarge
 Security : SSH, custome TCP 8080 & 8888 , HTTP , HTTPS
 log in : https://www.youtube.com/watch?v=4WQe_-DAn1E
+ubuntu@ip4xxxxxxxx
+
+wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
+sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
+sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
+sudo apt-get install cuda-9.0
+sudo ldconfig /usr/local/cuda/lib64
 
 git clone https://github.com/anasmatic/CarND-Term3-Project4-Semantic-Segmentation.git
 cd CarND-Term3-Project4-Semantic-Segmentation/
@@ -48,18 +55,15 @@ wget https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/advanced_deep_lea
 unzip data_road.zip
 cd ..
 
+source activate tensorflow_p36
 sudo apt-get update
 sudo apt install python3-pip
 pip install --upgrade pip
 pip install tqdm
 pip install Pillow
-pip install tesorflow-gpu --upgrade
+pip install tensorflow-gpu --upgrade
+pip install opencv-python
 
-wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
-sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb
-sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
-sudo apt-get install cuda-9.0
-sudo ldconfig /usr/local/cuda/lib64
 
 #how to download file :
 https://www.youtube.com/watch?v=Qxs7CYguo70
